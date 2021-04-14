@@ -2,10 +2,16 @@ package se.lexicon.formbinding_practice.entity;
 
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.Id;
 
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Data
@@ -14,9 +20,20 @@ public class Customer {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(nullable = false)
+    @NotBlank(message = "Field can not be blank")
     private String customerId;
+
+    @Email(message = "Wrong email format")
+    @Column(nullable = false)
     private String email;
+
+    @Column(nullable = false)
     private LocalDate regDate;
+
+    @AssertTrue
     private boolean active;
+
+    @Column(nullable = false)
     private CustomerDetails customerDetails;
 }
