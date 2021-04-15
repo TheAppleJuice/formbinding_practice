@@ -13,20 +13,20 @@
         </div>
         <div class="card-body">
             <div class="row">
-                <p>Customer ID: <span th:text="${}"></span></p>
-                <p>Customer Email:</p>
-                <p>Reg date:</p>
-                <p>Status:</p>
+                <p>Customer ID: <span th:text="${customerDto.customerId}"></span></p>
+                <p>Customer Email: <span th:text="${customerDto.email}"></span></p>
+                <p>Reg date: <span th:text="${customerDto.regDate}"></span></p>
+                <p>Status: <span th:text="${customerDto.isActive()}"></span></p>
             </div>
             <div class="row">
-                <p>Customer details ID:</p>
-                <p>Street:</p>
-                <p>Zip code:</p>
-                <p>City:</p>
+                <p>Customer details ID: <span th:text="${customerDto.customerDetailsDto.detailsId}"></span></p>
+                <p>Street: <span th:text="${customerDto.customerDetailsDto.street}"></span></p>
+                <p>Zip code: <span th:text="${customerDto.customerDetailsDto.zipCode}"></span></p>
+                <p>City: <span th:text="${customerDto.customerDetailsDto.city}"></span></p>
             </div>
             <div class="row">
-                <p>Home phone:</p>
-                <p>Cell phone:</p>
+                <p>Home phone: <span th:text="${customerDto.customerDetailsDto.homePhone}"></span></p>
+                <p>Cell phone: <span th:text="${customerDto.customerDetailsDto.cellPhone}"></span></p>
             </div>
         </div>
         <div class="card-footer">

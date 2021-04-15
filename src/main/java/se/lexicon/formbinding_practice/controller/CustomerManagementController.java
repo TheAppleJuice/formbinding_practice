@@ -32,8 +32,8 @@ public class CustomerManagementController {
     @GetMapping("/find/{id}")
     public String getCustomerById(@PathVariable("id") String id, Model model) {
         System.out.println("Id = " + id);
-        CustomerDto customerDtoFindCustomer = customerService.findByCustomerId(id);
-        model.addAttribute("customerDtoFindCustomer", customerDtoFindCustomer);
+        CustomerDto optionalCustomerDto = customerService.findByCustomerId(id);
+        model.addAttribute("customerDto", optionalCustomerDto);
         return "customerDetails";
     }
 
