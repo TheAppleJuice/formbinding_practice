@@ -25,13 +25,13 @@ public class Customer {
     @Column(nullable = false)
     private String email;
 
-   // @Column(nullable = false)
+    // @Column(nullable = false)
     private LocalDate regDate;
 
-   // @AssertTrue
+    // @AssertTrue
     private boolean active;
 
-    //@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    //@Column(nullable = false)
-    //private CustomerDetails customerDetails;
+    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @Column(nullable = false)
+    private CustomerDetails customerDetails;
 }
