@@ -8,14 +8,14 @@ public class CustomerController {
 
     @GetMapping("/")
     public String showCustomer (){
-        return "customer";
+        return "customerAddForm";
     }
-/*
+
     @GetMapping("/customerDetails")
     public String showDetails (){
 
         return "customerDetails";
     }
 
- */
+
 }

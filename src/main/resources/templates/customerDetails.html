@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/headerResources :: header_resources">
 </head>
 <body>
+<nav th:insert="fragments/navbar :: nav_fragment"></nav>
+<body>
 
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Customer details</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <p>Customer ID:</p>
+                <p>Customer Email:</p>
+                <p>Reg date:</p>
+                <p>Status:</p>
+            </div>
+            <div class="row">
+                <p>Customer details ID:</p>
+                <p>Street:</p>
+                <p>Zip code:</p>
+                <p>City:</p>
+            </div>
+            <div class="row">
+                <p>Home phone:</p>
+                <p>Cell phone:</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <a href="#" class="btn btn-danger">Back</a>
+        </div>
+    </div>
+</div>
+
+
+
+<footer th:insert="fragments/footer :: footer_fragment"></footer>
 </body>
 </html>
