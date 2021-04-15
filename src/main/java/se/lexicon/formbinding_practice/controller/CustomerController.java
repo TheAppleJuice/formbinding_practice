@@ -6,16 +6,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class CustomerController {
 
-    @GetMapping("/")
-    public String showCustomer (){
+    @GetMapping("/addCustomer")
+    public String addCustomer (){
         return "customerAddForm";
     }
+
+    @GetMapping ("/customerList")
+    public String customerView (){
+        return "customerManagement";
+    }
+
 
     @GetMapping("/customerDetails")
     public String showDetails (){
 
         return "customerDetails";
     }
+
+
 
 
 }
