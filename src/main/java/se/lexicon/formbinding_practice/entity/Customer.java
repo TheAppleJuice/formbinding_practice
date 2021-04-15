@@ -17,18 +17,17 @@ public class Customer {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(nullable = false)
-    @NotBlank(message = "Field can not be blank")
+   // @Column(nullable = false)
+   // @NotBlank(message = "Field can not be blank")
     private String customerId;
 
-    @Email(message = "Wrong email format")
-    @Column(nullable = false)
+   // @Email(message = "Wrong email format")
+   // @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
+   // @Column(nullable = false)
     private LocalDate regDate;
 
-    @AssertTrue
     private boolean active;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

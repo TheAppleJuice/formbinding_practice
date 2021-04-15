@@ -10,5 +10,5 @@ public interface CustomerService {
 
     List<CustomerDto> getAll();
 
-    CustomerDto findByCustomerId (String id);
+    CustomerDto findByCustomerId(String id);
 }

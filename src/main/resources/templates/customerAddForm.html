@@ -16,6 +16,7 @@
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Email</label>
                         <input th:field="*{email}" type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                        <p class="alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
                     </div>
 
                 </div>
