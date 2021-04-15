@@ -46,7 +46,8 @@ public class customerServiceImpl implements CustomerService{
     }
 
     @Override
-    public CustomerDto findByCustomerId(String id) {
+    //TODO: Kolla över så att metoden fungerar med String id.
+    public CustomerDto findByCustomerId(String id)  {
         if (id==null) throw new IllegalArgumentException("Customer id can not be null");
         Customer customer = customerRepository.findById(id).orElse(null);
         return customerConverter.toDTO(customer);
