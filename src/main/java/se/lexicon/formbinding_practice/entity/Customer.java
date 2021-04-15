@@ -4,10 +4,7 @@ import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -28,12 +25,13 @@ public class Customer {
     @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
+   // @Column(nullable = false)
     private LocalDate regDate;
 
-    @AssertTrue
+   // @AssertTrue
     private boolean active;
 
-    @Column(nullable = false)
-    private CustomerDetails customerDetails;
+    //@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    //@Column(nullable = false)
+    //private CustomerDetails customerDetails;
 }
