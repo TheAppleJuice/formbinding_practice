@@ -14,22 +14,22 @@ import javax.validation.constraints.Pattern;
 public class CustomerDetails {
     @Id
     @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name= "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String detailsId;
 
-   // @Column(nullable = false)
+    @Column(nullable = false)
     private String street;
 
 
-   // @Column(nullable = false)
+    @Column(nullable = false)
     private String zipCode;
 
-   // @Column(nullable = false)
+    @Column(nullable = false)
     private String city;
 
-   // @Column(nullable = false)
+    @Column(nullable = false)
     private String homePhone;
 
-   // @Column(nullable = false)
+    @Column(nullable = false)
     private String cellPhone;
 }
