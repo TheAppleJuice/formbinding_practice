@@ -30,6 +30,6 @@ public class Customer {
 
     private boolean active;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     private CustomerDetails customerDetails;
 }

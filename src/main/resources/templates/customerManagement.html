@@ -21,7 +21,7 @@
                 No Customers listed.
             </div>
             <div th:unless="${customerDtoList.isEmpty()}">
-                <div class="table table-hover">
+                <table class="table table-hover">
                     <thead>
                     <tr>
                         <th>Customer id</th>
@@ -29,6 +29,7 @@
                         <th>Details</th>
                     </tr>
                     </thead>
+                    <br/>
                     <tbody>
                     <tr th:each="customerDto : ${customerDtoList}">
                         <td>
@@ -43,7 +44,7 @@
                     </td>
                      </tr>
                     </tbody>
-                </div>
+                </table>
             </div>
 
         </div>

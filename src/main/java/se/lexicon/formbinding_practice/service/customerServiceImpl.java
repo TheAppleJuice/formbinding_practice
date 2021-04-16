@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class customerServiceImpl implements CustomerService{
+public class customerServiceImpl implements CustomerService {
 
     CustomerRepository customerRepository;
     CustomerConverter customerConverter;
@@ -27,8 +27,6 @@ public class customerServiceImpl implements CustomerService{
     }
 
 
-
-
     @Override
     public CustomerDto saveOrUpdate(CustomerDto customerDto) {
         if (customerDto == null) throw new IllegalArgumentException("CustomerDto is not valid");
@@ -39,7 +37,7 @@ public class customerServiceImpl implements CustomerService{
 
     @Override
     public List<CustomerDto> getAll() {
-        Iterable<Customer>  iterable = customerRepository.findAll();
+        Iterable<Customer> iterable = customerRepository.findAll();
         List<Customer> customerList = new ArrayList<>();
         iterable.iterator().forEachRemaining(customerList::add);
         return new ArrayList<>(customerConverter.toDTos(customerList));
@@ -47,8 +45,8 @@ public class customerServiceImpl implements CustomerService{
 
     @Override
     //TODO: Kolla över så att metoden fungerar med String id.
-    public CustomerDto findByCustomerId(String id)  {
-        if (id==null) throw new IllegalArgumentException("Customer id can not be null");
+    public CustomerDto findByCustomerId(String id) {
+        if (id.equalsIgnoreCase(null)) throw new IllegalArgumentException("Customer id can not be null"); //TODO: Can vara något fel med if satsen för en "String"
         Customer customer = customerRepository.findById(id).orElse(null);
         return customerConverter.toDTO(customer);
     }
