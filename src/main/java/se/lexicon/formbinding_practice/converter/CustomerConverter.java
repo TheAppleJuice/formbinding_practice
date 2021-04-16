@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @Component
-public class CustomerConverter implements Converter <Customer, CustomerDto> {
+public class CustomerConverter implements Converter<Customer, CustomerDto> {
 
     CustomerDetailsConverter customerDetailsConverter;
 
@@ -22,8 +22,11 @@ public class CustomerConverter implements Converter <Customer, CustomerDto> {
     @Override
     public Customer toModel(CustomerDto dto) {
         Customer customer = new Customer();
-        if (dto!=null){
-            customer.setCustomerId(dto.getCustomerId());
+        if (dto != null) {
+            if (dto.getCustomerId() != null) {
+                customer.setCustomerId(dto.getCustomerId());
+
+            }
             customer.setEmail(dto.getEmail());
             customer.setRegDate(dto.getRegDate());
             customer.setActive(dto.isActive());
@@ -35,7 +38,7 @@ public class CustomerConverter implements Converter <Customer, CustomerDto> {
     @Override
     public CustomerDto toDTO(Customer model) {
         CustomerDto customerDto = new CustomerDto();
-        if (model != null){
+        if (model != null) {
             customerDto.setCustomerId(model.getCustomerId());
             customerDto.setEmail(model.getEmail());
             customerDto.setRegDate(model.getRegDate());
@@ -48,8 +51,8 @@ public class CustomerConverter implements Converter <Customer, CustomerDto> {
     @Override
     public Collection<Customer> toModels(Collection<CustomerDto> collection) {
         Collection<Customer> customers = new ArrayList<>();
-        if (collection != null){
-            for (CustomerDto customerDto : collection){
+        if (collection != null) {
+            for (CustomerDto customerDto : collection) {
                 customers.add(toModel(customerDto));
             }
         }
@@ -59,8 +62,8 @@ public class CustomerConverter implements Converter <Customer, CustomerDto> {
     @Override
     public Collection<CustomerDto> toDTos(Collection<Customer> collection) {
         Collection<CustomerDto> customerDtos = new ArrayList<>();
-        if (collection != null){
-            for (Customer customer : collection){
+        if (collection != null) {
+            for (Customer customer : collection) {
                 CustomerDto dto = toDTO(customer);
                 customerDtos.add(dto);
             }

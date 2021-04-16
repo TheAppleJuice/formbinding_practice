@@ -6,11 +6,16 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import se.lexicon.formbinding_practice.dto.CustomerDetailsDto;
 import se.lexicon.formbinding_practice.dto.CustomerDto;
 import se.lexicon.formbinding_practice.entity.Customer;
+import se.lexicon.formbinding_practice.entity.CustomerDetails;
 import se.lexicon.formbinding_practice.service.CustomerService;
 
 import java.awt.event.MouseListener;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/customer/view")
@@ -25,7 +30,26 @@ public class CustomerManagementController {
 
     @GetMapping("/list")
     public String getAll(Model model) {
-        model.addAttribute("customerDtoList", customerService.getAll());
+        List<CustomerDto> testDebug = new ArrayList<>();
+        CustomerDto testCustomer = new CustomerDto();
+        testCustomer.setCustomerId("test1");
+        testCustomer.setEmail("sb@test.se");
+        testCustomer.setActive(true);
+        testCustomer.setRegDate(LocalDate.now());
+
+        CustomerDetailsDto testDetailsDto = new CustomerDetailsDto();
+        testDetailsDto.setDetailsId("test2");
+        testDetailsDto.setCellPhone("12345678");
+        testDetailsDto.setHomePhone("12345678");
+        testDetailsDto.setCity("Växjö");
+        testDetailsDto.setZipCode("12345");
+        testDetailsDto.setStreet("street 1a");
+
+
+        testCustomer.setCustomerDetailsDto(testDetailsDto);
+        testDebug.add(testCustomer);
+        //TODO: problem in converter
+        model.addAttribute("customerDtoList", testDebug);
         return "customerManagement";
     }
 
@@ -56,6 +80,6 @@ public class CustomerManagementController {
         customerService.saveOrUpdate(customerDto);
         redirectAttributes.addFlashAttribute("message", "Add customer email: " + customerDto.getEmail() + " is done");
         redirectAttributes.addFlashAttribute("alertClass", "alert-success");
-        return "redirect:/customer/view";
+        return "redirect:/customer/view/list";
     }
 }
