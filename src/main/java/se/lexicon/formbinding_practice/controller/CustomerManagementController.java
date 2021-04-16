@@ -30,26 +30,8 @@ public class CustomerManagementController {
 
     @GetMapping("/list")
     public String getAll(Model model) {
-        List<CustomerDto> testDebug = new ArrayList<>();
-        CustomerDto testCustomer = new CustomerDto();
-        testCustomer.setCustomerId("test1");
-        testCustomer.setEmail("sb@test.se");
-        testCustomer.setActive(true);
-        testCustomer.setRegDate(LocalDate.now());
-
-        CustomerDetailsDto testDetailsDto = new CustomerDetailsDto();
-        testDetailsDto.setDetailsId("test2");
-        testDetailsDto.setCellPhone("12345678");
-        testDetailsDto.setHomePhone("12345678");
-        testDetailsDto.setCity("Växjö");
-        testDetailsDto.setZipCode("12345");
-        testDetailsDto.setStreet("street 1a");
-
-
-        testCustomer.setCustomerDetailsDto(testDetailsDto);
-        testDebug.add(testCustomer);
         //TODO: problem in converter
-        model.addAttribute("customerDtoList", testDebug);
+        model.addAttribute("customerDtoList", customerService.getAll());
         return "customerManagement";
     }
 

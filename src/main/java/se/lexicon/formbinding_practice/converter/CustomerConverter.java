@@ -45,7 +45,8 @@ public class CustomerConverter implements Converter<Customer, CustomerDto> {
             customerDto.setActive(model.isActive());
             customerDto.setCustomerDetailsDto(customerDetailsConverter.toDTO(model.getCustomerDetails()));
         }
-        return null;
+        return customerDto;
+        //Solved by Mehrdad
     }
 
     @Override
