@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @Data
@@ -15,21 +16,22 @@ public class CustomerDetails {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(nullable = false)
     private String detailsId;
 
-    @Column(nullable = false)
+    @NotNull
     private String street;
 
 
-    @Column(nullable = false)
+    @NotNull
     private String zipCode;
 
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String city;
 
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String homePhone;
 
-    @Column(nullable = false)
+    // @Column(nullable = false)
     private String cellPhone;
 }

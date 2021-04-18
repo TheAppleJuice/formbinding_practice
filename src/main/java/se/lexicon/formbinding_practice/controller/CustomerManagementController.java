@@ -56,7 +56,7 @@ public class CustomerManagementController {
                                   BindingResult bindingResult,
                                   RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
-            return "customerAddForm";
+            return "redirect: /customer/view/addCustomerForm";
         }
 
         customerService.saveOrUpdate(customerDto);
